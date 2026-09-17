@@ -4,6 +4,8 @@
 
 A MySQL portfolio case study showing the lifecycle of a relational database: source analysis, semantic-rule modeling, functional and multivalued dependencies, normalization through fourth normal form (4NF), schema implementation, views, and analytical/operational queries.
 
+The public data release contains 181 source-derived Savannah hotel and restaurant directory records.
+
 ## What this demonstrates
 
 - Translating an unstructured tourism reference into a relational model
