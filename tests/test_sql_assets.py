@@ -1,4 +1,5 @@
 import re
+import csv
 import unittest
 from pathlib import Path
 
@@ -39,12 +40,24 @@ class PortfolioSQLTests(unittest.TestCase):
         labels = [int(n) for n in re.findall(r"^--\s*(\d+)\.", self.queries, re.M)]
         self.assertEqual(labels, list(range(1, 18)))
 
-    def test_no_real_source_dataset_is_committed(self):
-        prohibited = {"phonebook", "aaa", "source_pages"}
-        paths = {p.name.lower() for p in ROOT.rglob("*") if p.is_file()}
-        self.assertTrue(prohibited.isdisjoint(paths))
+    def test_public_directory_dataset_is_present(self):
+        expected = {
+            "savannah_restaurants.csv": 148,
+            "savannah_hotels.csv": 33,
+        }
+        for filename, record_count in expected.items():
+            with (ROOT / "data" / filename).open(encoding="utf-8", newline="") as source:
+                rows = list(csv.DictReader(source))
+            self.assertEqual(len(rows), record_count)
+
+    def test_public_dataset_excludes_publisher_descriptions(self):
+        for path in (ROOT / "data").glob("*.csv"):
+            with path.open(encoding="utf-8", newline="") as source:
+                headers = {header.lower() for header in next(csv.reader(source))}
+            self.assertNotIn("description", headers)
+            self.assertNotIn("rest_descript", headers)
+            self.assertNotIn("hotel_descript", headers)
 
 
 if __name__ == "__main__":
     unittest.main()
-
