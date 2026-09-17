@@ -23,7 +23,9 @@ The design was implemented in MySQL across core entities and associative tables.
 ## Public-portfolio adaptations
 
 - Table and column names were standardized for readability.
-- A small synthetic dataset replaced copyrighted reference pages.
+- Two CSV files publish 181 factual hotel and restaurant directory records from the team's source extraction.
+- Publisher page scans, photographs, layout, and narrative descriptions remain excluded.
+- A small synthetic SQL seed remains available for a fast, repeatable database demonstration.
 - The SQL was separated into schema, sample data, views, and queries.
 - Automated checks ensure that the portfolio retains all seventeen labeled queries, required views, and key schema elements.
 - The original five-person team is explicitly credited.
@@ -31,4 +33,3 @@ The design was implemented in MySQL across core entities and associative tables.
 ## Result
 
 The project demonstrates a complete relational-design workflow from narrative requirements to normalized schema and decision-oriented SQL. It also provides evidence of communicating a large technical design through a structured written report and presentation.
-
