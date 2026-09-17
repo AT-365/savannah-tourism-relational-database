@@ -58,6 +58,21 @@ class PortfolioSQLTests(unittest.TestCase):
             self.assertNotIn("rest_descript", headers)
             self.assertNotIn("hotel_descript", headers)
 
+    def test_selected_source_evidence_and_transformation_guide_are_present(self):
+        required = (
+            ROOT / "source_material" / "savannah_hotel_source_pages.pdf",
+            ROOT / "source_material" / "savannah_restaurant_source_pages.pdf",
+            ROOT / "docs" / "images" / "raw-hotel-page.png",
+            ROOT / "docs" / "images" / "raw-restaurant-page.png",
+            ROOT / "docs" / "data-transformation.md",
+        )
+        for path in required:
+            self.assertTrue(path.is_file(), f"Missing portfolio evidence: {path.relative_to(ROOT)}")
+
+        guide = (ROOT / "docs" / "data-transformation.md").read_text(encoding="utf-8")
+        for phrase in ("33 hotel records", "148 restaurant records", "181 source-derived records"):
+            self.assertIn(phrase, guide)
+
 
 if __name__ == "__main__":
     unittest.main()
