@@ -9,6 +9,7 @@ The public data release contains 181 source-derived Savannah hotel and restauran
 ## What this demonstrates
 
 - Translating an unstructured tourism reference into a relational model
+- Extracting consistent fields from dense scans containing ads, multiple columns, wrapped text, missing values, and handwritten review marks
 - Defining 26 semantic rules and identifying functional and multivalued dependencies
 - Decomposing the universal relation through 1NF, 2NF, 3NF, BCNF, and 4NF
 - Implementing a multi-entity MySQL schema with primary and foreign keys
@@ -27,8 +28,10 @@ The public data release contains 181 source-derived Savannah hotel and restauran
 | [`data/savannah_restaurants.csv`](data/savannah_restaurants.csv) | 148 source-derived restaurant directory records |
 | [`data/savannah_hotels.csv`](data/savannah_hotels.csv) | 33 source-derived hotel directory records |
 | [`data/README.md`](data/README.md) | Dataset provenance, fields, exclusions, and use notes |
+| [`docs/data-transformation.md`](docs/data-transformation.md) | Visual walkthrough from messy source pages to structured relational data |
 | [`docs/case-study.md`](docs/case-study.md) | Design decisions, normalization narrative, and results |
 | [`docs/query-catalog.md`](docs/query-catalog.md) | Plain-language catalog of the 17 questions |
+| [`source_material/`](source_material/) | Selected hotel and restaurant source-page excerpts used for the extraction |
 | [`tests/test_sql_assets.py`](tests/test_sql_assets.py) | Automated structural checks for the portfolio SQL |
 
 ## Quick start
@@ -59,9 +62,15 @@ The views demonstrate two different integration problems:
 
 This originated as a five-person graduate Database Systems team project. The original submission credits Aubree Sellers, Autenia Murray, Olivia Grant, Rebekah Burke, and Sadie Robards. This repository is a recruiter-facing curation of the shared design and implementation evidence; it does not claim sole authorship by one teammate.
 
-The repository includes 181 factual business-directory records transcribed from the AAA/Glorious Savannah reference used by the team. The CSV files contain structured directory fields such as business names, locations, phone numbers, websites, categories, and booking information. Publisher page scans, photographs, layout, and narrative descriptions are excluded. The records are a historical academic snapshot and should not be treated as a current travel directory.
+The repository includes 181 factual business-directory records transcribed from the Savannah hotel and restaurant reference pages used by the team. The CSV files contain structured directory fields such as business names, locations, phone numbers, websites, categories, and booking information. Limited source-page excerpts are included as process evidence, while narrative descriptions are excluded from the CSV dataset. The records are a historical academic snapshot and should not be treated as a current travel directory.
 
 The small SQL seed file remains synthetic so the schema and queries can be demonstrated quickly and repeatably. The public CSV files preserve the source-derived dataset separately for inspection and portfolio evidence.
+
+## Inspect the data transformation
+
+The [data-transformation walkthrough](docs/data-transformation.md) places representative raw hotel and restaurant pages beside the resulting structured fields. It documents the full path from selected source pages to extraction, consistent columns, cleaned records, normalized relations, and validated SQL assets.
+
+The portfolio includes only the hotel and restaurant sections used for Autenia Murray's assigned extraction work. The larger reference contained additional categories outside this scope. The selected excerpts remain third-party source material and are not covered by the repository's MIT license.
 
 ## Technology
 
