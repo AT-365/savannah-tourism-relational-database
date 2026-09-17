@@ -22,6 +22,9 @@ A MySQL portfolio case study showing the lifecycle of a relational database: sou
 | [`sql/views.sql`](sql/views.sql) | Reusable views for cross-table business analysis |
 | [`sql/queries.sql`](sql/queries.sql) | Seventeen documented analytical and operational queries |
 | [`sql/sample_data.sql`](sql/sample_data.sql) | Small synthetic dataset for safe demonstration |
+| [`data/savannah_restaurants.csv`](data/savannah_restaurants.csv) | 148 source-derived restaurant directory records |
+| [`data/savannah_hotels.csv`](data/savannah_hotels.csv) | 33 source-derived hotel directory records |
+| [`data/README.md`](data/README.md) | Dataset provenance, fields, exclusions, and use notes |
 | [`docs/case-study.md`](docs/case-study.md) | Design decisions, normalization narrative, and results |
 | [`docs/query-catalog.md`](docs/query-catalog.md) | Plain-language catalog of the 17 questions |
 | [`tests/test_sql_assets.py`](tests/test_sql_assets.py) | Automated structural checks for the portfolio SQL |
@@ -54,7 +57,9 @@ The views demonstrate two different integration problems:
 
 This originated as a five-person graduate Database Systems team project. The original submission credits Aubree Sellers, Autenia Murray, Olivia Grant, Rebekah Burke, and Sadie Robards. This repository is a recruiter-facing curation of the shared design and implementation evidence; it does not claim sole authorship by one teammate.
 
-The original source pages and full 70 MB screenshot-heavy submission are intentionally excluded. The sample data here is synthetic, and the SQL has been formatted and documented for public review.
+The repository includes 181 factual business-directory records transcribed from the AAA/Glorious Savannah reference used by the team. The CSV files contain structured directory fields such as business names, locations, phone numbers, websites, categories, and booking information. Publisher page scans, photographs, layout, and narrative descriptions are excluded. The records are a historical academic snapshot and should not be treated as a current travel directory.
+
+The small SQL seed file remains synthetic so the schema and queries can be demonstrated quickly and repeatably. The public CSV files preserve the source-derived dataset separately for inspection and portfolio evidence.
 
 ## Technology
 
