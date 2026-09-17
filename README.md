@@ -1,5 +1,7 @@
 # Savannah Tourism Relational Database
 
+[![portfolio-checks](https://github.com/AT-365/savannah-tourism-relational-database/actions/workflows/tests.yml/badge.svg)](https://github.com/AT-365/savannah-tourism-relational-database/actions/workflows/tests.yml)
+
 A MySQL portfolio case study showing the lifecycle of a relational database: source analysis, semantic-rule modeling, functional and multivalued dependencies, normalization through fourth normal form (4NF), schema implementation, views, and analytical/operational queries.
 
 ## What this demonstrates
@@ -57,4 +59,3 @@ The original source pages and full 70 MB screenshot-heavy submission are intenti
 ## Technology
 
 MySQL 8 · SQL · relational modeling · normalization · EER/URD design · views · joins · subqueries · regular expressions · automated repository checks
-
