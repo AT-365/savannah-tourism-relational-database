@@ -1,77 +1,167 @@
 # Savannah Tourism Relational Database
 
-[![portfolio-checks](https://github.com/AT-365/savannah-tourism-relational-database/actions/workflows/tests.yml/badge.svg)](https://github.com/AT-365/savannah-tourism-relational-database/actions/workflows/tests.yml)
+A graduate database case study demonstrating the progression from difficult source-material extraction and semantic requirements to EER modeling, normalized relational design, MySQL implementation, SQL analysis, and validation.
 
-A MySQL portfolio case study showing the lifecycle of a relational database: source analysis, semantic-rule modeling, functional and multivalued dependencies, normalization through fourth normal form (4NF), schema implementation, views, and analytical/operational queries.
+> **Project type:** Five-person graduate Database Systems team project  
+> **Portfolio focus:** My documented contribution includes the hotel and restaurant extraction scope represented by the public dataset in this repository.
 
-The public data release contains 181 source-derived Savannah hotel and restaurant directory records.
+## Why This Project Matters
 
-## What this demonstrates
+This project demonstrates practical database skills employers look for in entry-level data, analytics, backend, and database roles:
 
-- Translating an unstructured tourism reference into a relational model
-- Extracting consistent fields from dense scans containing ads, multiple columns, wrapped text, missing values, and handwritten review marks
-- Defining 26 semantic rules and identifying functional and multivalued dependencies
-- Decomposing the universal relation through 1NF, 2NF, 3NF, BCNF, and 4NF
-- Implementing a multi-entity MySQL schema with primary and foreign keys
-- Combining subtype tables through `UNION ALL`, joins, subqueries, string functions, and views
-- Answering 17 business questions and performing controlled updates/inserts
-- Explaining a technical design to both technical and nontechnical audiences
+- extracting structured information from difficult semi-structured source material
+- translating domain requirements into semantic rules
+- modeling entities, relationships, constraints, and dependencies
+- normalizing relational designs through 4NF
+- converting conceptual EER designs into relational schemas
+- implementing SQL schemas, views, and queries
+- validating technical artifacts with automated checks
+- documenting design decisions and project limitations clearly
 
-## Repository map
+## Project Overview
+
+The original project used a large Savannah tourism and business reference source containing multiple information domains, including:
+
+- attractions
+- businesses
+- hotels
+- restaurants
+- medical establishments
+- universities
+- sports and recreation
+- historic sites
+- parks and other related categories
+
+The full team project covered a broader multi-domain database. This repository also includes a clearly identified public extraction subset containing **181 structured hotel and restaurant records** associated with my documented extraction scope.
+
+The 181-record dataset should not be confused with the full scope of the team’s database design.
+
+## Assignment 2 and Assignment 3
+
+Assignments 2 and 3 were connected but had different objectives and different semantic-rule sets.
+
+### Assignment 2 — Requirements, Normalization, and Implementation
+
+Assignment 2 documented **49 semantic rules** and used them to guide the conversion of source requirements into relational structures.
+
+The assignment focused on:
+
+- analyzing the source material
+- identifying entities, attributes, relationships, and dependencies
+- converting the 49 semantic rules into relations
+- normalization through 1NF, 2NF, 3NF, BCNF, and 4NF
+- implementing the database in MySQL
+- creating views and answering business questions with SQL
+- documenting results and validation
+
+### Assignment 3 — EER Modeling and Relational Conversion
+
+Assignment 3 continued the project with a separate set of **27 semantic rules**.
+
+It focused on:
+
+- blocking analysis
+- EER conceptual modeling
+- specialization and participation constraints
+- documenting entity and relationship details
+- converting the EER model into relations using the class algorithm
+- listing attributes and final relation schemas
+
+The 49-rule and 27-rule counts are intentionally reported separately because they belong to different assignments and support different stages of the design process.
+
+## Verified Portfolio Metrics
+
+| Metric | Value |
+|---|---:|
+| Assignment 2 semantic rules | 49 |
+| Assignment 3 semantic rules | 27 |
+| Public hotel records | 33 |
+| Public restaurant records | 148 |
+| Public source-derived records | 181 |
+| Implemented schema tables | 52 |
+| Labeled SQL queries | 17 |
+| SQL views in repository | 3 |
+| Automated repository test methods | 8 |
+| Original team size | 5 |
+
+The 181 public records represent the documented hotel and restaurant extraction subset, not the complete scope of the original team database.
+
+## What I Built and Contributed
+
+The repository preserves and presents evidence of:
+
+- manual extraction from difficult scanned reference pages
+- structured hotel and restaurant data files
+- normalized SQL schema implementation
+- primary-key and foreign-key relationships
+- bridge tables for multi-entity relationships
+- reusable SQL views
+- analytical and operational query examples
+- sample data for safe demonstration
+- automated checks for schema, views, queries, and dataset consistency
+- supporting reports, diagrams, assignment directions, and grading documentation
+
+The original work was completed by a five-person team. The repository does not claim sole authorship of every team deliverable. My documented extraction scope was the hotel and restaurant portion represented in the public dataset.
+
+## Source-Data Challenge
+
+The source was not a clean spreadsheet or database export. It included difficult scanned and photocopied reference pages with:
+
+- multi-column layouts
+- advertisements and visual interruptions
+- wrapped text
+- inconsistent field placement
+- missing values
+- icons and page-layout artifacts
+- handwritten marks
+- difficult-to-read printing
+
+The extraction process converted relevant printed facts into consistent fields, preserved blanks when information was unavailable, and avoided filling missing values with unsupported outside research.
+
+See [`docs/data-transformation.md`](docs/data-transformation.md) and [`source_material/`](source_material/).
+
+## Repository Map
 
 | Path | Purpose |
 |---|---|
-| [`sql/schema.sql`](sql/schema.sql) | Recruiter-readable MySQL DDL for the normalized schema |
-| [`sql/views.sql`](sql/views.sql) | Reusable views for cross-table business analysis |
-| [`sql/queries.sql`](sql/queries.sql) | Seventeen documented analytical and operational queries |
-| [`sql/sample_data.sql`](sql/sample_data.sql) | Small synthetic dataset for safe demonstration |
-| [`data/savannah_restaurants.csv`](data/savannah_restaurants.csv) | 148 source-derived restaurant directory records |
-| [`data/savannah_hotels.csv`](data/savannah_hotels.csv) | 33 source-derived hotel directory records |
-| [`data/README.md`](data/README.md) | Dataset provenance, fields, exclusions, and use notes |
-| [`docs/data-transformation.md`](docs/data-transformation.md) | Visual walkthrough from messy source pages to structured relational data |
-| [`docs/case-study.md`](docs/case-study.md) | Design decisions, normalization narrative, and results |
-| [`docs/query-catalog.md`](docs/query-catalog.md) | Plain-language catalog of the 17 questions |
-| [`source_material/`](source_material/) | Selected hotel and restaurant source-page excerpts used for the extraction |
-| [`tests/test_sql_assets.py`](tests/test_sql_assets.py) | Automated structural checks for the portfolio SQL |
+| [`sql/schema.sql`](sql/schema.sql) | MySQL schema, keys, relationships, and constraints |
+| [`sql/views.sql`](sql/views.sql) | Reusable SQL views |
+| [`sql/queries.sql`](sql/queries.sql) | Labeled analytical and operational queries |
+| [`sql/sample_data.sql`](sql/sample_data.sql) | Representative demonstration data |
+| [`data/`](data/) | Public hotel and restaurant record outputs |
+| [`source_material/`](source_material/) | Selected source-page evidence |
+| [`docs/case-study.md`](docs/case-study.md) | Modeling, normalization, and project narrative |
+| [`docs/data-transformation.md`](docs/data-transformation.md) | Source-to-structured-data workflow |
+| [`docs/query-catalog.md`](docs/query-catalog.md) | Query descriptions and review guide |
+| `Assignment 2-Semantic Rules.pdf` | Assignment 2 semantic-rule evidence |
+| `Assignment 3_Final Report.pdf` | Assignment 3 EER and relational-conversion report |
+| `EER FinalFRFR.jpg` | Selected Assignment 3 EER diagram |
+| [`tests/test_sql_assets.py`](tests/test_sql_assets.py) | Automated repository checks |
 
-## Quick start
+## How to Review This Project
 
-```bash
-mysql -u root -p < sql/schema.sql
-mysql -u root -p glorious_savannah < sql/sample_data.sql
-mysql -u root -p glorious_savannah < sql/views.sql
-mysql -u root -p glorious_savannah < sql/queries.sql
-```
+For a quick technical review:
 
-Run the repository checks:
+1. Read this README.
+2. Review [`docs/case-study.md`](docs/case-study.md).
+3. Read [`docs/data-transformation.md`](docs/data-transformation.md).
+4. Inspect [`sql/schema.sql`](sql/schema.sql).
+5. Review [`sql/views.sql`](sql/views.sql) and [`sql/queries.sql`](sql/queries.sql).
+6. Open the selected Assignment 3 EER diagram.
+7. Review [`tests/test_sql_assets.py`](tests/test_sql_assets.py).
 
-```bash
-python -m unittest discover -s tests -v
-```
+For deeper evidence, see the Assignment 2 and Assignment 3 reports and supporting source-material files in the repository.
 
-## Design highlights
+## Team Attribution and Scope
 
-The model separates four major domains—attractions, businesses, hotels, and restaurants—then resolves multivalued relationships with identification tables. For example, a book can reference many hotels, while each hotel record remains independently keyed and reusable. The same pattern is applied to attractions, universities, sports facilities, and business subtypes.
+This work originated as a five-person graduate Database Systems project. The original report credits:
 
-The views demonstrate two different integration problems:
+- Aubree Sellers
+- Autenia Murray
+- Olivia Grant
+- Rebekah Burke
+- Sadie Robards
 
-1. consolidating medical establishments, pest-control companies, and plumbers into a common business interface; and
-2. matching historic churches with Savannah squares after normalizing street-location text.
+This repository is a recruiter-facing curation of shared project evidence. It distinguishes the broader team deliverables from the hotel and restaurant extraction scope documented as my assigned contribution.
 
-## Scope and attribution
-
-This originated as a five-person graduate Database Systems team project. The original submission credits Aubree Sellers, Autenia Murray, Olivia Grant, Rebekah Burke, and Sadie Robards. This repository is a recruiter-facing curation of the shared design and implementation evidence; it does not claim sole authorship by one teammate.
-
-The repository includes 181 factual business-directory records transcribed from the Savannah hotel and restaurant reference pages used by the team. The CSV files contain structured directory fields such as business names, locations, phone numbers, websites, categories, and booking information. Limited source-page excerpts are included as process evidence, while narrative descriptions are excluded from the CSV dataset. The records are a historical academic snapshot and should not be treated as a current travel directory.
-
-The small SQL seed file remains synthetic so the schema and queries can be demonstrated quickly and repeatably. The public CSV files preserve the source-derived dataset separately for inspection and portfolio evidence.
-
-## Inspect the data transformation
-
-The [data-transformation walkthrough](docs/data-transformation.md) places representative raw hotel and restaurant pages beside the resulting structured fields. It documents the full path from selected source pages to extraction, consistent columns, cleaned records, normalized relations, and validated SQL assets.
-
-The portfolio includes only the hotel and restaurant sections used for Autenia Murray's assigned extraction work. The larger reference contained additional categories outside this scope. The selected excerpts remain third-party source material and are not covered by the repository's MIT license.
-
-## Technology
-
-MySQL 8 · SQL · relational modeling · normalization · EER/URD design · views · joins · subqueries · regular expressions · automated repository checks
+The repository is a historical academic portfolio artifact, not a current commercial tourism directory.

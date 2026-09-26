@@ -1,22 +1,62 @@
-# Query catalog
+# SQL Query Catalog
 
-The original implementation concluded with two views and seventeen questions. The public SQL uses normalized names and synthetic data while retaining the analytical intent.
+This catalog describes the SQL query and view artifacts included in the repository.
 
-1. Find businesses with an 800 number, a website, and four major accepted cards.
-2. Return steakhouses in Hilton Head.
-3. Identify businesses outside Savannah.
-4. Find pest controllers offering residential and commercial dead-animal removal.
-5. Find optical doctors at a specified medical establishment.
-6. Find plastic-surgery establishments offering eyelid surgery.
-7. List Savannah art activities involving jazz.
-8. Find public Savannah golf courses with more than 20 holes.
-9. List sports recreation on Tybee Island.
-10. Identify Savannah squares established for war heroes.
-11. Find parks with picnic shelters and an athletic field.
-12. List Savannah art events in March and April.
-13. Find historic-area hotels with cancellation fees and booking limits.
-14. Find businesses operating for more than ten years that accept Mastercard and are family owned.
-15. Update a medical group after closures and a cardiology relocation.
-16. Find Savannah attractions erected in the nineteenth century.
-17. Insert a new square with its location, honoree, year, designer, and architecture.
+## Assignment Context
 
+The SQL implementation is primarily evidence from the Assignment 2 implementation phase. Assignment 3 was focused on EER conceptual design and systematic relation conversion rather than SQL execution.
+
+## Query Set
+
+The repository contains **17 labeled analytical and operational queries** in [`../sql/queries.sql`](../sql/queries.sql).
+
+The query set demonstrates:
+
+- filtering and pattern matching
+- joins across related entities
+- cross-domain retrieval
+- set-based analysis
+- regular-expression searches
+- update examples
+- insert examples
+- business-oriented questions based on the modeled data
+
+## Views
+
+The repository contains **3 SQL views** in [`../sql/views.sql`](../sql/views.sql).
+
+Some original Assignment 2 materials refer to two required views. The repository implementation contains three view definitions, including an additional reusable abstraction used by the portfolio SQL assets. The README therefore distinguishes:
+
+- the assignment requirement, and
+- the current repository implementation count.
+
+## Relationship to Semantic Rules
+
+The query and view design is downstream of the Assignment 2 modeling work:
+
+1. Assignment 2 documented 49 semantic rules.
+2. Those requirements informed the relational schema and dependencies.
+3. The schema supported views and business queries.
+4. Assignment 3 separately documented 27 semantic rules for EER modeling and relation conversion.
+
+The two semantic-rule counts belong to different assignments and should not be treated as one combined query-design count.
+
+## Review Path
+
+1. Open [`../sql/queries.sql`](../sql/queries.sql).
+2. Review the numbered query comments.
+3. Cross-reference referenced tables in [`../sql/schema.sql`](../sql/schema.sql).
+4. Review reusable abstractions in [`../sql/views.sql`](../sql/views.sql).
+5. Review validation logic in [`../tests/test_sql_assets.py`](../tests/test_sql_assets.py).
+
+## Validation
+
+The repository tests check the presence and consistency of core SQL assets, including:
+
+- required tables
+- bridge tables
+- foreign-key relationships
+- view definitions
+- labeled query count
+- public dataset counts
+- documented scope exclusions

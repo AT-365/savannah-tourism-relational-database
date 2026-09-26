@@ -1,39 +1,121 @@
-# Case study
+# Case Study: Savannah Tourism Relational Database
 
-## Problem
+## Project Context
 
-The source material described Savannah attractions, businesses, hotels, and restaurants as semi-structured reference pages. The database needed to support repeatable searches across those categories without duplicating multivalued data.
+This repository presents a graduate Database Systems project completed through two connected assignments.
 
-## Approach
+- **Assignment 2:** semantic requirements, normalization, implementation, SQL queries, views, and results
+- **Assignment 3:** EER modeling and systematic conversion of the conceptual model into relational schemas
 
-The team converted the domain narrative into 26 semantic rules, then identified functional dependencies and multivalued dependencies. A universal relation diagram made the dependencies visible before decomposition.
+The original work was completed by a five-person team. The repository is a curated portfolio presentation of the shared project artifacts and the documented hotel and restaurant extraction scope.
 
-For the assigned hotel and restaurant portion, the source was not a clean table. It consisted of dense scanned pages with multi-column listings, advertisements, icons, wrapped text, inconsistent field placement, missing values, and handwritten review marks. The extraction separated printed facts into consistent attributes, assigned stable identifiers, and retained blanks when the source did not provide a value. Missing facts were not filled from outside sources.
+## Project Scope
 
-Normalization proceeded in stages:
+The full team project modeled information from a broad Savannah tourism and business reference source. The modeled domains included attractions, businesses, hotels, restaurants, medical establishments, universities, sports and recreation, historic sites, parks, and related categories.
 
-- **1NF:** confirm atomic attributes;
-- **2NF:** verify full dependency on each relation's key;
-- **3NF:** separate transitive dependencies into domain relations;
-- **BCNF:** verify that each determinant is a candidate key; and
-- **4NF:** resolve independent multivalued relationships through identification tables.
+The public structured dataset in this repository contains the hotel and restaurant extraction subset:
 
-## Implementation
+- 33 hotel records
+- 148 restaurant records
+- 181 records total
 
-The design was implemented in MySQL across core entities and associative tables. Source records were loaded, the results were checked in the database client, two reusable views were created, and seventeen queries were executed. The query set covers selection, joins, unions, subqueries, regular-expression matching, updates, and inserts.
+These records represent the documented extraction scope presented in the portfolio. They are not the complete record count of every domain considered by the full team database.
 
-## Public-portfolio adaptations
+## Assignment 2: Requirements and Implementation
 
-- Table and column names were standardized for readability.
-- Two CSV files publish 181 factual hotel and restaurant directory records from the team's source extraction.
-- The limited hotel and restaurant source excerpts are included so recruiters can inspect the messy input; unrelated directory categories remain excluded.
-- Publisher narrative descriptions are excluded from the public CSV dataset.
-- A visual [data-transformation walkthrough](data-transformation.md) connects the scans to structured fields and normalized SQL.
-- A small synthetic SQL seed remains available for a fast, repeatable database demonstration.
-- The SQL was separated into schema, sample data, views, and queries.
-- Automated checks ensure that the portfolio retains all seventeen labeled queries, required views, and key schema elements.
-- The original five-person team is explicitly credited.
+Assignment 2 documented **49 semantic rules**. These rules guided the analysis of the source material and the conversion of domain requirements into relational structures.
 
-## Result
+The Assignment 2 workflow included:
 
-The project demonstrates a complete relational-design workflow from narrative requirements to normalized schema and decision-oriented SQL. It also provides evidence of communicating a large technical design through a structured written report and presentation.
+1. analyzing the source material,
+2. identifying entities, attributes, and relationships,
+3. documenting 49 semantic rules,
+4. identifying functional and multivalued dependencies,
+5. decomposing relations through normal forms,
+6. implementing the relational database in MySQL,
+7. creating views and SQL queries,
+8. documenting results and validation.
+
+The portfolio implementation includes:
+
+- 52 SQL tables
+- 3 repository views
+- 17 labeled queries
+- automated repository checks
+- structured hotel and restaurant data outputs
+
+## Assignment 3: EER Modeling and Relational Conversion
+
+Assignment 3 documented a separate set of **27 semantic rules** for the conceptual EER-design phase.
+
+The Assignment 3 report includes:
+
+- blocking analysis
+- entity and relationship descriptions
+- specialization constraints
+- an EER diagram
+- systematic EER-to-relational conversion
+- attribute lists
+- final relation schemas
+
+The 27 Assignment 3 rules should not be merged with the 49 Assignment 2 rules. They belong to a separate assignment and document a different stage of the database-design process.
+
+## Source-Data Challenge
+
+The source material was semi-structured and difficult to transcribe. The selected pages included:
+
+- dense multi-column listings
+- advertisements
+- wrapped descriptions
+- inconsistent field placement
+- missing values
+- visual artifacts
+- handwritten marks
+- poor-quality scans and photocopies
+
+The extraction process converted source information into consistent machine-readable fields. Where the source did not provide a value, the process preserved the blank rather than inventing information from outside sources.
+
+See [`data-transformation.md`](data-transformation.md) and [`../source_material/`](../source_material/).
+
+## Modeling and Normalization
+
+The Assignment 2 implementation documents normalization through:
+
+- 1NF
+- 2NF
+- 3NF
+- BCNF
+- 4NF
+
+The design addresses dependency and multivalued-relationship concerns through keys, foreign keys, and bridge or identification tables.
+
+Assignment 3 complements this implementation work by documenting the conceptual EER model and the formal algorithmic conversion from EER structures to relation schemas.
+
+## Portfolio Evidence
+
+| Evidence | Location |
+|---|---|
+| Assignment 2 semantic rules | `Assignment 2-Semantic Rules.pdf` |
+| Assignment 3 semantic rules and EER report | `Assignment 3_Final Report.pdf` |
+| Assignment 3 EER diagram | `EER FinalFRFR.jpg` |
+| Implemented schema | [`../sql/schema.sql`](../sql/schema.sql) |
+| Views | [`../sql/views.sql`](../sql/views.sql) |
+| Queries | [`../sql/queries.sql`](../sql/queries.sql) |
+| Source transformation process | [`data-transformation.md`](data-transformation.md) |
+| Automated checks | [`../tests/test_sql_assets.py`](../tests/test_sql_assets.py) |
+
+## Employer-Relevant Takeaways
+
+This case study demonstrates the ability to:
+
+- work with incomplete and difficult source data,
+- translate narrative requirements into formal semantic rules,
+- reason about dependencies and normalization,
+- create conceptual and logical database designs,
+- implement SQL schemas and query assets,
+- validate repository artifacts,
+- communicate the evolution of a technical design across multiple project phases.
+
+## Attribution
+
+The original project was completed by a five-person graduate Database Systems team. The repository preserves that team context and identifies the hotel and restaurant extraction subset as the documented individual scope represented in the public dataset.
