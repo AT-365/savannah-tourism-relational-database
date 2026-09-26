@@ -95,9 +95,9 @@ Assignment 3 complements this implementation work by documenting the conceptual 
 
 | Evidence | Location |
 |---|---|
-| Assignment 2 semantic rules | `Assignment 2-Semantic Rules.pdf` |
-| Assignment 3 semantic rules and EER report | `Assignment 3_Final Report.pdf` |
-| Assignment 3 EER diagram | `EER FinalFRFR.jpg` |
+| Assignment 2 semantic rules | [`../portfolio/Assignment 2-Semantic Rules.pdf`](../portfolio/Assignment%202-Semantic%20Rules.pdf) |
+| Assignment 3 semantic rules and EER report | [`../portfolio/Assignment 3_Final Report.pdf`](../portfolio/Assignment%203_Final%20Report.pdf) |
+| Assignment 3 EER diagram | [`../portfolio/EER Final (1).jpg`](../portfolio/EER%20Final%20%281%29.jpg) |
 | Implemented schema | [`../sql/schema.sql`](../sql/schema.sql) |
 | Views | [`../sql/views.sql`](../sql/views.sql) |
 | Queries | [`../sql/queries.sql`](../sql/queries.sql) |
