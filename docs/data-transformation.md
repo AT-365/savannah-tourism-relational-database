@@ -20,7 +20,7 @@ The complete selected excerpts are available as [`savannah_hotel_source_pages.pd
 | 2. Extract | Read each listing and capture the printed facts into separate attributes. Preserve blank values when the page does not provide a field. | Team extraction sheets and source pages |
 | 3. Structure | Assign stable record identifiers and place repeated attributes into consistent columns. Do not infer missing cuisine, city, or descriptive facts from outside sources. | Public hotel and restaurant CSV files |
 | 4. Clean | Remove page-layout artifacts, separate combined fields where the source supports it, preserve source wording, and make the records consistently machine-readable. | 181 source-derived records |
-| 5. Model | Translate 26 semantic rules and the observed dependencies into relations, keys, and bridge tables normalized through 4NF. | [`schema.sql`](../sql/schema.sql) and the [case study](case-study.md) |
+| 5. Model | Translate Assignment 2 semantic rules and the observed dependencies into relations, keys, and bridge tables normalized through 4NF. | [`schema.sql`](../sql/schema.sql) and the [case study](case-study.md) |
 | 6. Validate | Check record counts, required schema objects, foreign keys, views, and all 17 labeled queries with automated repository tests. | [`test_sql_assets.py`](../tests/test_sql_assets.py) |
 
 ## Concrete transformation example
