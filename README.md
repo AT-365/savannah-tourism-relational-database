@@ -133,9 +133,10 @@ See [`docs/data-transformation.md`](docs/data-transformation.md) and [`source_ma
 | [`docs/case-study.md`](docs/case-study.md) | Modeling, normalization, and project narrative |
 | [`docs/data-transformation.md`](docs/data-transformation.md) | Source-to-structured-data workflow |
 | [`docs/query-catalog.md`](docs/query-catalog.md) | Query descriptions and review guide |
-| `Assignment 2-Semantic Rules.pdf` | Assignment 2 semantic-rule evidence |
-| `Assignment 3_Final Report.pdf` | Assignment 3 EER and relational-conversion report |
-| `EER FinalFRFR.jpg` | Selected Assignment 3 EER diagram |
+| [`portfolio/`](portfolio/) | Assignment reports, grading/supporting evidence, and the selected EER diagram |
+| [`portfolio/Assignment 2-Semantic Rules.pdf`](portfolio/Assignment%202-Semantic%20Rules.pdf) | Assignment 2 semantic-rule evidence |
+| [`portfolio/Assignment 3_Final Report.pdf`](portfolio/Assignment%203_Final%20Report.pdf) | Assignment 3 EER and relational-conversion report |
+| [`portfolio/EER Final (1).jpg`](portfolio/EER%20Final%20%281%29.jpg) | Selected Assignment 3 EER diagram |
 | [`tests/test_sql_assets.py`](tests/test_sql_assets.py) | Automated repository checks |
 
 ## How to Review This Project
@@ -147,10 +148,10 @@ For a quick technical review:
 3. Read [`docs/data-transformation.md`](docs/data-transformation.md).
 4. Inspect [`sql/schema.sql`](sql/schema.sql).
 5. Review [`sql/views.sql`](sql/views.sql) and [`sql/queries.sql`](sql/queries.sql).
-6. Open the selected Assignment 3 EER diagram.
+6. Open the selected Assignment 3 EER diagram in [`portfolio/`](portfolio/).
 7. Review [`tests/test_sql_assets.py`](tests/test_sql_assets.py).
 
-For deeper evidence, see the Assignment 2 and Assignment 3 reports and supporting source-material files in the repository.
+For deeper evidence, see the Assignment 2 and Assignment 3 reports in [`portfolio/`](portfolio/) and the supporting source-material files in the repository.
 
 ## Team Attribution and Scope
 
