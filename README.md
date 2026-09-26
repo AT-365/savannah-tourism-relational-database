@@ -1,6 +1,10 @@
 # Savannah Tourism Relational Database
 
-A graduate database case study demonstrating the progression from difficult source-material extraction and semantic requirements to EER modeling, normalized relational design, MySQL implementation, SQL analysis, and validation.
+[![portfolio-checks](https://github.com/AT-365/savannah-tourism-relational-database/actions/workflows/tests.yml/badge.svg)](https://github.com/AT-365/savannah-tourism-relational-database/actions/workflows/tests.yml)
+
+A MySQL portfolio case study demonstrating the complete relational database lifecycle: from semi-structured source data through semantic-rule modeling, functional and multivalued dependency analysis, normalization through fourth normal form (4NF), to a multi-entity MySQL schema with 52 tables, 3 reusable views, and 17 analytical queries.
+
+**Project Scope:** The public dataset contains 181 source-derived hotel and restaurant directory records extracted from messy, multi-column scanned reference pages. These represent my assigned extraction contribution to a five-person graduate Database Systems team project covering broader Savannah tourism and business domains.
 
 > **Project type:** Five-person graduate Database Systems team project  
 > **Portfolio focus:** My documented contribution includes the hotel and restaurant extraction scope represented by the public dataset in this repository.
@@ -32,9 +36,9 @@ The original project used a large Savannah tourism and business reference source
 - historic sites
 - parks and other related categories
 
-The full team project covered a broader multi-domain database. This repository also includes a clearly identified public extraction subset containing **181 structured hotel and restaurant records** associated with my documented extraction scope.
+The full team project covered a broader multi-domain database. This repository also includes a clearly identified public extraction subset containing **181 structured hotel and restaurant records** extracted from scanned reference pages.
 
-The 181-record dataset should not be confused with the full scope of the team’s database design.
+The 181-record dataset should not be confused with the full scope of the team's database design.
 
 ## Assignment 2 and Assignment 3
 
@@ -101,7 +105,28 @@ The repository preserves and presents evidence of:
 - automated checks for schema, views, queries, and dataset consistency
 - supporting reports, diagrams, assignment directions, and grading documentation
 
-The original work was completed by a five-person team. The repository does not claim sole authorship of every team deliverable. My documented extraction scope was the hotel and restaurant portion represented in the public dataset.
+The original work was completed by a five-person team. The repository does not claim sole authorship of every team deliverable. My documented extraction scope was the hotel and restaurant portion presented in the public dataset and portfolio evidence.
+
+## Quick Start
+
+Load the schema and sample data into MySQL:
+
+```bash
+mysql -u root -p < sql/schema.sql
+mysql -u root -p glorious_savannah < sql/sample_data.sql
+mysql -u root -p glorious_savannah < sql/views.sql
+mysql -u root -p glorious_savannah < sql/queries.sql
+```
+
+Run the automated validation tests:
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+Then inspect the structured output in [`data/`](data/):
+- 33 hotel records: [`savannah_hotels.csv`](data/savannah_hotels.csv)
+- 148 restaurant records: [`savannah_restaurants.csv`](data/savannah_restaurants.csv)
 
 ## Source-Data Challenge
 
@@ -139,6 +164,26 @@ See [`docs/data-transformation.md`](docs/data-transformation.md) and [`source_ma
 | [`portfolio/EER Final (1).jpg`](portfolio/EER%20Final%20%281%29.jpg) | Selected Assignment 3 EER diagram |
 | [`tests/test_sql_assets.py`](tests/test_sql_assets.py) | Automated repository checks |
 
+## Design Highlights
+
+The model separates four major domains—attractions, businesses, hotels, and restaurants—then resolves multivalued relationships with identification tables. For example, a book can reference multiple attractions, universities, or hospitals through bridge tables like `book_attractions`, `book_universities`, and `business_medical`. The design demonstrates how to flatten complex M:N relationships while preserving independence between semantic facts.
+
+The views demonstrate two different integration problems:
+
+1. consolidating medical establishments, pest-control companies, and plumbers into a common business interface; and
+2. matching historic churches with Savannah squares after normalizing street-location text.
+
+## Technologies & Methods
+
+- **MySQL 8:** schema design, DDL, views, complex joins, subqueries, pattern matching with REGEXP
+- **SQL:** relational algebra, set operations (UNION ALL), aggregate functions, string manipulation
+- **Relational modeling:** functional dependency analysis, multivalued dependency resolution, bridge tables
+- **Normalization:** 1NF → 2NF → 3NF → BCNF → 4NF decomposition with dependency preservation
+- **EER/ER design:** entity-relationship modeling, specialization constraints, conceptual-to-relational conversion
+- **Python:** automated test suite with unittest, CSV validation, schema introspection
+- **Data engineering:** extraction from semi-structured sources, field mapping, consistency validation
+- **Git/GitHub:** version control, automated CI/CD with GitHub Actions
+
 ## How to Review This Project
 
 For a quick technical review:
@@ -166,3 +211,15 @@ This work originated as a five-person graduate Database Systems project. The ori
 This repository is a recruiter-facing curation of shared project evidence. It distinguishes the broader team deliverables from the hotel and restaurant extraction scope documented as my assigned contribution.
 
 The repository is a historical academic portfolio artifact, not a current commercial tourism directory.
+
+## What I Learned
+
+This project taught me several foundational lessons about production database design:
+
+- **Normalization is about more than eliminating redundancy.** Fourth normal form resolution requires thinking carefully about which facts are independent and which relationships should be separated into identification tables. Poor decomposition creates either over-joined queries or impossible-to-validate constraints.
+
+- **Semi-structured source data extraction requires discipline.** When converting messy scanned pages into structured records, it's tempting to infer missing values or "clean up" inconsistencies. The right approach is to preserve source facts exactly and document the blanks—let downstream consumers decide how to handle incomplete data.
+
+- **Automated validation catches subtle mistakes early.** The repository's test suite validates schema structure, foreign-key relationships, view definitions, and output record counts. This prevents drift between what the documentation claims and what the code actually does.
+
+- **Clear scope boundaries are essential for team collaboration.** The original assignment included five people working on different domains. Documenting which tables, records, and assignments belong to whom prevents confusion and makes it possible to extract reusable portfolio evidence later.
